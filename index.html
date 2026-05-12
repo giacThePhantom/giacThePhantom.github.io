@@ -3,166 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[Your Name] | [Your Title/Field]</title>
+    <title>root@bioinfo:~# [YourName]</title>
     <style>
         :root {
-            --primary: #2563eb; /* Professional Blue */
-            --dark: #1e293b;
-            --light: #f8fafc;
-            --text: #334155;
+            --bg: #0d1117; /* GitHub Dark */
+            --terminal-green: #3fb950;
+            --terminal-blue: #58a6ff;
+            --text: #c9d1d9;
+            --border: #30363d;
+            --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            line-height: 1.6;
+            background-color: var(--bg);
             color: var(--text);
-            background-color: var(--light);
+            font-family: var(--font-mono);
+            line-height: 1.5;
             margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            max-width: 850px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        /* Header Section */
-        header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            color: var(--dark);
-            margin-bottom: 10px;
-            letter-spacing: -0.025em;
-        }
-
-        .tagline {
-            font-size: 1.2rem;
-            color: var(--primary);
-            font-weight: 500;
-            margin-top: 0;
-        }
-
-        /* Shop Window Sections */
-        .section {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            margin-bottom: 24px;
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            color: var(--dark);
-            margin-top: 0;
-            border-bottom: 2px solid var(--light);
-            padding-bottom: 10px;
-        }
-
-        /* Social/Contact Grid */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .link-card {
+            padding: 20px;
             display: flex;
-            align-items: center;
-            padding: 12px 15px;
-            background: var(--light);
-            border-radius: 8px;
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: all 0.2s ease;
-            border: 1px solid transparent;
+            justify-content: center;
         }
 
-        .link-card:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-            transform: translateY(-2px);
-        }
-
-        /* Buttons for Papers/Posters */
-        .cta-group {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 12px 24px;
+        .terminal {
+            max-width: 900px;
+            width: 100%;
+            border: 1px solid var(--border);
             border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: opacity 0.2s;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
 
-        .btn-primary { background: var(--primary); color: white; }
-        .btn-secondary { background: var(--dark); color: white; }
-        .btn:hover { opacity: 0.9; }
+        /* Terminal Window Bar */
+        .window-bar {
+            background: #161b22;
+            padding: 10px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            gap: 8px;
+        }
 
-        footer {
-            text-align: center;
-            margin-top: 60px;
-            font-size: 0.9rem;
-            color: #94a3b8;
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .red { background: #ff5f56; }
+        .yellow { background: #ffbd2e; }
+        .green { background: #27c93f; }
+
+        .content { padding: 30px; }
+
+        /* Commands & Syntax */
+        .command { color: var(--terminal-green); font-weight: bold; }
+        .command::before { content: "$ "; color: #8b949e; }
+
+        .comment { color: #8b949e; font-style: italic; }
+
+        h1, h2 { color: var(--terminal-blue); font-size: 1.2rem; margin-top: 30px; }
+
+        /* The Shop Window / Grid */
+        .dir-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .file-link {
+            border: 1px solid var(--border);
+            padding: 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            color: var(--text);
+            transition: 0.2s;
+            display: block;
+        }
+
+        .file-link:hover {
+            background: #161b22;
+            border-color: var(--terminal-blue);
+            transform: translateX(5px);
+        }
+
+        .dna-seq {
+            word-break: break-all;
+            font-size: 0.7rem;
+            color: #21262d;
+            user-select: none;
+            margin: 20px 0;
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid var(--terminal-blue);
+            float: right;
+            filter: grayscale(100%) contrast(120%);
         }
 
         @media (max-width: 600px) {
-            h1 { font-size: 2rem; }
-            .section { padding: 20px; }
+            .avatar { float: none; display: block; margin: 0 auto 20px auto; }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <h1>[Your Name]</h1>
-        <p class="tagline">[Candidate / Researcher / Professional] at [Organization]</p>
-    </header>
+<div class="terminal">
+    <div class="window-bar">
+        <div class="dot red"></div>
+        <div class="dot yellow"></div>
+        <div class="dot green"></div>
+        <span style="margin-left: 10px; font-size: 0.8rem; color: #8b949e;">bash — 80x24</span>
+    </div>
 
-    <section class="section">
-        <h2>About Me</h2>
-        <p>
-            I am a [Your Field] specialist focusing on [Topic A] and [Topic B].
-            Currently, my work involves [explain your big project in one sentence].
-            I am passionate about bridging the gap between [industry/theory] and [practice/application].
-        </p>
-    </section>
+    <div class="content">
+        <img src="your-photo.jpg" alt="[Photo]" class="avatar" onerror="this.style.display='none'">
 
-    <section class="section">
-        <h2>Active Research & Materials</h2>
-        <p>Scanning from a poster? Access the latest versions of my work below:</p>
-        <div class="cta-group">
-            <a href="posters/current-poster.pdf" class="btn btn-primary">Download Latest Poster</a>
-            <a href="papers/published-work.pdf" class="btn btn-secondary">Read Full Paper</a>
+        <p class="command">whoami</p>
+        <p><strong>[Your Name]</strong><br>
+        Bioinformatician @ [Your Lab/University]<br>
+        <span class="comment"># Parsing biological data into actionable insights</span></p>
+
+        <p class="command">ls ./current_projects/</p>
+        <div class="dir-list">
+            <a href="posters/poster-2026.pdf" class="file-link">
+                📄 conference_poster_2026.pdf<br>
+                <small>Latest research visuals</small>
+            </a>
+            <a href="papers/manuscript.pdf" class="file-link">
+                📄 latest_publication.pdf<br>
+                <small>Peer-reviewed work</small>
+            </a>
         </div>
-    </section>
 
-    <section class="section">
-        <h2>Connect With Me</h2>
-        <div class="grid">
-            <a href="[Your LinkedIn Link]" class="link-card">LinkedIn</a>
-            <a href="[Your Google Scholar Link]" class="link-card">Google Scholar</a>
-            <a href="https://github.com/[YourUsername]" class="link-card">GitHub Project Hub</a>
-            <a href="mailto:[YourEmail]" class="link-card">Email Me</a>
+        <p class="command">grep -r "contact" ./socials/</p>
+        <div class="dir-list">
+            <a href="https://github.com/[YourUser]" class="file-link">GitHub</a>
+            <a href="https://linkedin.com/in/[YourUser]" class="file-link">LinkedIn</a>
+            <a href="https://scholar.google.com/..." class="file-link">Google Scholar</a>
+            <a href="mailto:your@email.com" class="file-link">Email</a>
         </div>
-    </section>
 
-    <footer>
-        <p>&copy; 2026 [Your Name] • Updated [Month, Year]</p>
-    </footer>
-</div>
-
-</body>
-</html>
+        <p class="command">cat dna_sequence.fasta</p>
+        <div class="dna-seq">
+            ATGCGTACGTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCT
