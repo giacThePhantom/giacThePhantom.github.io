@@ -3,37 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Researcher Name | Conference Materials</title>
+    <title>[Your Name] | [Your Title/Field]</title>
     <style>
-        body { font-family: -apple-system, sans-serif; line-height: 1.6; max-width: 800px; margin: 40px auto; padding: 0 20px; color: #333; }
-        h1 { border-bottom: 2px solid #eee; padding-bottom: 10px; }
-        .card { background: #f9f9f9; padding: 20px; border-radius: 8px; margin-bottom: 20px; border-left: 5px solid #0366d6; }
-        .btn { display: inline-block; background: #0366d6; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-top: 10px; }
-        .btn:hover { background: #024ea1; }
-        footer { margin-top: 50px; font-size: 0.8em; color: #666; }
+        :root {
+            --primary: #2563eb; /* Professional Blue */
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --text: #334155;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+            letter-spacing: -0.025em;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--primary);
+            font-weight: 500;
+            margin-top: 0;
+        }
+
+        /* Shop Window Sections */
+        .section {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 24px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-top: 0;
+            border-bottom: 2px solid var(--light);
+            padding-bottom: 10px;
+        }
+
+        /* Social/Contact Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .link-card {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            background: var(--light);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .link-card:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* Buttons for Papers/Posters */
+        .cta-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-secondary { background: var(--dark); color: white; }
+        .btn:hover { opacity: 0.9; }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            .section { padding: 20px; }
+        }
     </style>
 </head>
 <body>
 
-    <h1>Jane Doe</h1>
-    <p>PhD Candidate in Physics | University of Science</p>
+<div class="container">
+    <header>
+        <h1>[Your Name]</h1>
+        <p class="tagline">[Candidate / Researcher / Professional] at [Organization]</p>
+    </header>
 
-    <div class="card">
-        <h2>Current Conference: Physics Expo 2026</h2>
-        <p><strong>Poster Title:</strong> Analysis of Quantum Fluctuations in Static Environments.</p>
-        <a href="posters/conference-poster-2026.pdf" class="btn">View Poster (PDF)</a>
-        <a href="papers/full-paper.pdf" class="btn" style="background:#28a745">Read Full Paper</a>
-    </div>
+    <section class="section">
+        <h2>About Me</h2>
+        <p>
+            I am a [Your Field] specialist focusing on [Topic A] and [Topic B].
+            Currently, my work involves [explain your big project in one sentence].
+            I am passionate about bridging the gap between [industry/theory] and [practice/application].
+        </p>
+    </section>
 
-    <h3>Other Publications</h3>
-    <ul>
-        <li>"The Robustness of Systems" - Journal of Logic (2025) <a href="#">[Link]</a></li>
-        <li>"Fragile Architectures in Modern Web" - Tech Review (2024) <a href="#">[Link]</a></li>
-    </ul>
+    <section class="section">
+        <h2>Active Research & Materials</h2>
+        <p>Scanning from a poster? Access the latest versions of my work below:</p>
+        <div class="cta-group">
+            <a href="posters/current-poster.pdf" class="btn btn-primary">Download Latest Poster</a>
+            <a href="papers/published-work.pdf" class="btn btn-secondary">Read Full Paper</a>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Connect With Me</h2>
+        <div class="grid">
+            <a href="[Your LinkedIn Link]" class="link-card">LinkedIn</a>
+            <a href="[Your Google Scholar Link]" class="link-card">Google Scholar</a>
+            <a href="https://github.com/[YourUsername]" class="link-card">GitHub Project Hub</a>
+            <a href="mailto:[YourEmail]" class="link-card">Email Me</a>
+        </div>
+    </section>
 
     <footer>
-        <p>&copy; 2026 Jane Doe. Contact: email@university.edu</p>
+        <p>&copy; 2026 [Your Name] • Updated [Month, Year]</p>
     </footer>
+</div>
 
 </body>
 </html>
