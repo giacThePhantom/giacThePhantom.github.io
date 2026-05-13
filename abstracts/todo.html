@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark light">
+    <meta name="description" content="Abstract coming soon – Giacomo Fantoni">
+
+    <title>Abstract Coming Soon | Giacomo Fantoni</title>
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23282828'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='ui-monospace,monospace' font-weight='bold' font-size='13' fill='%23b8bb26'>GF</text></svg>">
+
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <div class="nav-links" id="nav-links">
+            <a href="../index.html">&#8592; BACK TO PROFILE</a>
+        </div>
+        <div class="nav-right">
+            <button id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
+            <button id="theme-toggle" aria-label="Toggle colour theme">&#9728; LIGHT</button>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="todo-wrap">
+
+        <div class="todo-badge">NOT YET PUBLIC</div>
+
+        <p class="todo-message">
+            This abstract will be made available during the conference.<br>
+            In the meantime, feel free to reach out directly.
+        </p>
+
+
+        <div class="cta-group">
+            <a href="mailto:giacomo.fantoni@unitn.it" class="btn btn-green">Get in Touch</a>
+            <a href="../index.html"                   class="btn btn-outline">&#8592; Back to Profile</a>
+        </div>
+
+    </div>
+
+<section id="contact" class="section">
+    <h2>04 // Connectivity</h2>
+    <div class="grid">
+        <a href="https://github.com/giacThePhantom" class="link-card" target="_blank" rel="noopener">
+            <i class="fa-brands fa-github"></i> GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/giacomo-fantoni" class="link-card" target="_blank" rel="noopener">
+            <i class="fa-brands fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="https://orcid.org/0009-0000-7306-3510" class="link-card" target="_blank" rel="noopener">
+            <i class="fa-brands fa-orcid"></i> ORCID
+        </a>
+        <a href="mailto:giacomo.fantoni@unitn.it" class="link-card">
+            <i class="fa-solid fa-envelope"></i> Email
+        </a>
+    </div>
+</section>
+</div>
+
+<script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    const htmlEl    = document.documentElement;
+    const saved     = localStorage.getItem('theme');
+    const sysLight  = window.matchMedia('(prefers-color-scheme: light)').matches;
+    applyTheme(saved || (sysLight ? 'light' : 'dark'));
+
+    toggleBtn.addEventListener('click', () => {
+        applyTheme(htmlEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+
+    function applyTheme(theme) {
+        htmlEl.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        toggleBtn.textContent = theme === 'dark' ? '\u2600 LIGHT' : '\uD83C\uDF11 DARK';
+    }
+
+    const menuBtn  = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    menuBtn.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('nav-open');
+        menuBtn.setAttribute('aria-expanded', String(isOpen));
+        menuBtn.textContent = isOpen ? '\u2715' : '\u2630';
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark light">
+    <meta name="description" content="[CONFERENCE NAME] – Abstract: [PAPER TITLE] – Giacomo Fantoni">
+
+    <title>BI-SCUDO Regression | Giacomo Fantoni</title>
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23282828'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='ui-monospace,monospace' font-weight='bold' font-size='13' fill='%23b8bb26'>GF</text></svg>">
+
+    <!-- Reuses the main site stylesheet — no extra CSS file needed -->
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <div class="nav-links" id="nav-links">
+            <a href="../index.html">&#8592; BACK TO PROFILE</a>
+        </div>
+        <div class="nav-right">
+            <button id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
+            <button id="theme-toggle" aria-label="Toggle colour theme">&#9728; LIGHT</button>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <header class="abstract-header section">
+        <div class="abstract-conference">
+            <span class="about-label"> CIBB 2025 Computational Intelligence methods for Bioinformatics and Biostatistics &middot; Milan, Italy &middot; 10 - 12 September 2025 </span>
+        </div>
+        <h1 class="abstract-title">
+            BI-SCUDO regression - a novel algorithm to infer clinical variables from omics datasets
+        </h1>
+        <p class="abstract-authors">
+            <!-- Add <sup> affiliation numbers after each name.
+                 Mark co-first authors with † before the affiliation number. -->
+            <strong>Giacomo Fantoni</strong><sup>1</sup>,
+            Mario Lauria<sup>2,3</sup>,
+            Carlo Alberto Rossi<sup>1,4</sup>,
+            Roberto Bizzotto<sup>4</sup>
+            Luca Marchetti<sup>1</sup>
+        </p>
+        <ol class="abstract-affiliations">
+            <li>Department of Cellular, Computational and Integrative Biology (CIBIO), University of Trento, Trento, Italy</li>
+            <li>Department of Mathematics, University of Trento, Trento, Italy. </li>
+            <li>Fondazione The Microsoft Research – University of Trento Centre for Computational and Systems Biology (COSBI), Rovereto (TN), Italy. </li>
+            <li>National Research Council, Padua, Italy. </li>
+            <!-- Remove unused <li> items -->
+        </ol>
+        <div class="abstract-cta">
+            <a href="../posters/cibb2025.pdf" class="btn btn-green">&#8595; Download Poster</a>
+        </div>
+    </header>
+
+    <!-- ABSTRACT BODY -->
+    <section class="section">
+        <h2>Abstract</h2>
+
+        <!-- Split into paragraphs: Background / Methods / Results / Conclusion
+             or write as a single block — your call. -->
+
+        <h3>Abstract</h3>
+        <p>
+            In omics data analysis, traditional methods primarily address classification tasks, often
+leading to a loss of detail due to the discretization of continuous clinical variables.
+Regression techniques like LASSO and Random Forest Regression (RFR) struggle with the
+noisy nature of omics datasets [1]. This study introduces BI-SCUDO regression, a novel
+rank-based approach designed to perform biomarker identification and regression analysis.
+        </p>
+        <h3>Methods</h3>
+        <p>
+BI-SCUDO regression builds on SCUDO classification [2], employing a genetic algorithm to
+extract patient-specific signatures from ranked omics profiles. These signatures are used to
+generate a distance map between patients that is employed to predict the value of a clinical
+variable for novel samples, according to a formula that considers sample neighbors and their
+distances.
+Initial method assessment was performed on progressively noisier synthetic microarray-like
+datasets, comparing performance to LASSO and RFR in terms of R-squared and root mean
+square error (RMSE) for prediction power and Jaccard score for feature selection.
+
+A real-world assessment has been performed by predicting patients’ overall survival from
+transcriptomic data from public TCGA projects [3], with at least 30 samples (32 projects,
+3464 samples). We evaluated prediction capabilities across entire datasets and in
+cancer-stage filtered subsets (I-IV, II-IV, III-IV) to explore the effect of heterogeneity.
+        </p>
+
+        <h3>Results</h3>
+        <p>
+    BI-SCUDO regression resulted in robust prediction of synthetic data as per 10-fold cross
+validation (R-squared 0.94 without noise, 0.80 with maximum noise), outperforming LASSO
+(0.95 - 0.06) and RFR (0.94 - 0.58). Biomarker discovery performance declined gradually in our method (Jaccard score from 0.92 to 0.52), while LASSO dropped sharply (0.20 - 0.04) and RFR, considering elbow
+plot-filtered features, fell in the middle (0.96 to 0.28). This supports the robustness of our
+method in including relevant information in the biomarker despite the noise.
+Regarding TCGA data, 10–fold cross-validated BI-SCUDO regression runs achieved median
+R-squared values of 0.24 on the entire dataset, 0.25 for stage I-IV, 0.27 for stages II-IV, and
+~0 for stages III-IV, likely due to limited sample sizes. LASSO and RFR never achieved
+positive R-squared. BI-SCUDO regression also reduced median RMSE compared to LASSO
+(-33% in the whole dataset, -36% I-IV, -40% II-IV, -36% III-IV) and RFR (-32% in the entire
+dataset, -35% I-IV, -42% II-IV, -40% III-IV). Finally, BI-SCUDO regression exhibited less
+variance in performance than LASSO (-23% in the entire dataset, -43% I-IV, -36% II-IV, -21%
+III-IV) and RFR (-24% in the entire dataset, -36% I-IV, -37% II-IV, -21% III-IV), highlighting its
+superior prediction stability in high-noise biological data.         </p>
+
+        <h3>Conclusions</h3>
+        <p>
+This study introduces BI-SCUDO regression as a robust alternative to existing methods to
+predict a continuous clinical variable from noisy omic datasets while concurrently identifying
+meaningful biomarkers. Its consistent performance across synthetic and real-world datasets
+supports its potential for broad application in translational and personalized medicine.         </p>
+    </section>
+
+    <!-- KEYWORDS -->
+    <section class="section">
+        <h2>Keywords</h2>
+        <div class="tag-list">
+            <span class="tag">Explainable AI</span>
+            <span class="tag">Regression</span>
+            <span class="tag">Biomarker Discovery</span>
+            <span class="tag">Omics Data Analysis</span>
+        </div>
+    </section>
+
+    <!-- ACKNOWLEDGEMENTS (optional — remove if not needed) -->
+
+
+    <!-- REFERENCES -->
+    <section class="section">
+        <h2>References</h2>
+        <ol class="ref-list">
+            <li class="ref-item">
+                Li, G., Zrimec, J., Ji, B., Geng, J., Larsbrink, J., Zelezniak, A., Nielsen, J., &amp; Engqvist, M. K.
+                <span class="ref-title">(2021). Performance of Regression Models as a Function of Experiment Noise.</span>
+                <span class="ref-source"><em>Bioinformatics and Biology Insights</em>, <em>15</em>. SAGE Publications.</span>
+                <a href="https://doi.org/10.1177/11779322211020315" class="ref-doi" target="_blank" rel="noopener">DOI:10.1177/11779322211020315</a>
+            </li>
+            <li class="ref-item">
+                Lauria, M.
+                <span class="ref-title">(2013). Rank-based transcriptional signatures.</span>
+                <span class="ref-source"><em>Systems Biomedicine</em>, <em>1</em>(4), 228–239. Informa UK Limited.</span>
+                <a href="https://doi.org/10.4161/sysb.25982" class="ref-doi" target="_blank" rel="noopener">DOI:10.4161/sysb.25982</a>
+            </li>
+            <li class="ref-item">
+                Weinstein, J. N., Collisson, E. A., Mills, G. B., Shaw, K. R. M., Ozenberger, B. A., Ellrott, K., Shmulevich, I., Sander, C., &amp; Stuart, J. M.
+                <span class="ref-title">(2013). The Cancer Genome Atlas Pan-Cancer analysis project.</span>
+                <span class="ref-source"><em>Nature Genetics</em>, <em>45</em>(10), 1113–1120.</span>
+                <a href="https://doi.org/10.1038/ng.2764" class="ref-doi" target="_blank" rel="noopener">DOI:10.1038/ng.2764</a>
+            </li>
+        </ol>
+    </section>
+
+<section id="contact" class="section">
+    <h2>Contacts</h2>
+    <div class="grid">
+        <a href="https://github.com/giacThePhantom" class="link-card" target="_blank" rel="noopener">
+            <i class="fa-brands fa-github"></i> GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/giacomo-fantoni" class="link-card" target="_blank" rel="noopener">
+            <i class="fa-brands fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="https://orcid.org/0009-0000-7306-3510" class="link-card" target="_blank" rel="noopener">
+            <i class="fa-brands fa-orcid"></i> ORCID
+        </a>
+        <a href="mailto:giacomo.fantoni@unitn.it" class="link-card">
+            <i class="fa-solid fa-envelope"></i> Email
+        </a>
+    </div>
+</section>
+    <footer>
+        <p>
+            Giacomo Fantoni &middot; University of Trento &middot;
+            <a href="mailto:giacomo.fantoni@unitn.it" style="color: var(--gray);">giacomo.fantoni@unitn.it</a>
+            &middot; <a href="https://orcid.org/0009-0000-7306-3510" target="_blank" rel="noopener" style="color: var(--gray);">ORCID</a>
+        </p>
+    </footer>
+
+</div>
+
+<script>
+    /* ── Theme toggle ─────────────────────────────────── */
+    const toggleBtn = document.getElementById('theme-toggle');
+    const htmlEl    = document.documentElement;
+
+    const saved    = localStorage.getItem('theme');
+    const sysLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    applyTheme(saved || (sysLight ? 'light' : 'dark'));
+
+    toggleBtn.addEventListener('click', () => {
+        applyTheme(htmlEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+
+    function applyTheme(theme) {
+        htmlEl.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        toggleBtn.textContent = theme === 'dark' ? '\u2600 LIGHT' : '\uD83C\uDF11 DARK';
+    }
+
+    /* ── Hamburger ────────────────────────────────────── */
+    const menuBtn  = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    menuBtn.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('nav-open');
+        menuBtn.setAttribute('aria-expanded', String(isOpen));
+        menuBtn.textContent = isOpen ? '\u2715' : '\u2630';
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('nav-open');
+            menuBtn.setAttribute('aria-expanded', 'false');
+            menuBtn.textContent = '\u2630';
+        });
+    });
+</script>
+
+</body>
+</html>

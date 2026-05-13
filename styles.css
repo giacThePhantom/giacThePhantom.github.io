@@ -1,0 +1,693 @@
+/* ============================================================
+   Giacomo Fantoni – Academic Profile
+   Gruvbox palette (dark default, light optional)
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   1. TOKENS
+   ---------------------------------------------------------- */
+:root {
+    --bg0:    #282828;
+    --bg1:    #3c3836;
+    --fg:     #ebdbb2;
+    --gray:   #928374;
+    --red:    #fb4934;
+    --green:  #b8bb26;
+    --blue:   #83a598;
+    --aqua:   #8ec07c;
+    --orange: #fe8019;
+}
+
+[data-theme="light"] {
+    --bg0:    #fbf1c7;
+    --bg1:    #f2e5bc;
+    --fg:     #3c3836;
+    --gray:   #928374;
+    --red:    #9d0006;
+    --green:  #79740e;
+    --blue:   #076678;
+    --aqua:   #427b58;
+    --orange: #af3a03;
+}
+
+
+/* ----------------------------------------------------------
+   2. RESET & BASE
+   ---------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+    font-family: 'ui-monospace', 'Cascadia Code', 'Fira Code', monospace;
+    line-height: 1.7;
+    color: var(--fg);
+    background-color: var(--bg0);
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+
+/* ----------------------------------------------------------
+   3. NAVIGATION
+   ---------------------------------------------------------- */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--bg0);
+    border-bottom: 2px solid var(--bg1);
+    padding: 10px 0;
+}
+
+.nav-container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--gray);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    margin-right: 20px;
+    transition: color 0.15s ease;
+}
+
+.nav-links a:hover { color: var(--green); }
+
+/* Groups the hamburger + theme toggle on the right */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 3. Hamburger button — hidden on desktop, shown on mobile */
+#menu-toggle {
+    display: none;
+    background: var(--bg1);
+    color: var(--fg);
+    border: 1px solid var(--gray);
+    padding: 5px 10px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1;
+    transition: border-color 0.15s ease;
+}
+
+#menu-toggle:hover { border-color: var(--green); }
+
+#theme-toggle {
+    background: var(--bg1);
+    color: var(--orange);
+    border: 1px solid var(--gray);
+    padding: 5px 12px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+#theme-toggle:hover {
+    border-color: var(--orange);
+    color: var(--fg);
+}
+
+
+/* ----------------------------------------------------------
+   4. LAYOUT
+   ---------------------------------------------------------- */
+.container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+
+/* ----------------------------------------------------------
+   5. HERO
+   ---------------------------------------------------------- */
+.hero {
+    display: flex;
+    gap: 0;
+    align-items: stretch;
+    background: var(--bg1);
+    border: 1px solid rgba(146, 131, 116, 0.25);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.hero:hover {
+    transform: translateY(-2px);
+    border-color: var(--green);
+}
+
+.profile-photo {
+    width: 35%;
+    min-width: 220px;
+    object-fit: cover;
+    display: block;
+    border-right: 3px solid var(--green);
+}
+
+.hero-text {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.hero-text h1 {
+    margin: 0 0 6px 0;
+    font-size: 2.2rem;
+    line-height: 1.1;
+}
+
+.hero-text .tagline {
+    display: block;
+    color: var(--blue);
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.hero-text .bio {
+    margin: 0;
+    max-width: 520px;
+    color: var(--fg);
+}
+
+
+/* ----------------------------------------------------------
+   6. SECTIONS
+   ---------------------------------------------------------- */
+.section {
+    background: var(--bg1);
+    padding: 30px;
+    border-radius: 4px;
+    margin-bottom: 30px;
+    border-left: 3px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+.section:hover { border-left-color: var(--green); }
+
+h2 {
+    color: var(--red);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* Research philosophy two-column */
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.philosophy-grid p { margin: 0; }
+
+
+/* Materials section sits at the top — give it a stronger visual weight */
+.section-highlight {
+    border-left-color: var(--green);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.section-highlight h2 { color: var(--green); }
+
+
+
+   ---------------------------------------------------------- */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.about-block {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.about-block p { margin: 0; }
+
+.about-label {
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--aqua);
+}
+
+/* Research interest tags */
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.tag {
+    background: var(--bg0);
+    color: var(--green);
+    border: 1px solid var(--green);
+    padding: 3px 10px;
+    font-size: 0.78rem;
+    border-radius: 2px;
+    letter-spacing: 0.5px;
+}
+
+
+/* ----------------------------------------------------------
+   8. PUBLICATIONS LIST (2. new section)
+   ---------------------------------------------------------- */
+.pub-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: pub-counter;
+}
+
+.pub-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(146, 131, 116, 0.2);
+    counter-increment: pub-counter;
+    position: relative;
+    padding-left: 36px;
+}
+
+/* Auto-number bullet styled in Gruvbox orange */
+.pub-item::before {
+    content: counter(pub-counter, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: var(--orange);
+    letter-spacing: 1px;
+}
+
+.pub-item:last-child { border-bottom: none; }
+
+.pub-authors {
+    font-size: 0.82rem;
+    color: var(--gray);
+}
+
+.pub-title {
+    color: var(--blue);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    transition: color 0.15s ease;
+}
+
+.pub-title:hover { color: var(--aqua); }
+
+.pub-meta {
+    font-size: 0.8rem;
+    color: var(--gray);
+}
+
+.pub-meta a {
+    color: var(--gray);
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.pub-meta a:hover { color: var(--green); }
+
+.pub-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: var(--orange);
+    border: 1px solid var(--orange);
+    padding: 1px 6px;
+    border-radius: 2px;
+    vertical-align: middle;
+}
+
+.co-first { color: var(--aqua); font-size: 0.7rem; }
+
+.pub-note {
+    font-size: 0.65rem;
+    color: var(--gray);
+    opacity: 0.45;
+    font-style: italic;
+}
+
+
+/* ----------------------------------------------------------
+   9. CTA BUTTONS
+   ---------------------------------------------------------- */
+.cta-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 24px;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: inherit;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    color: var(--bg0) !important;
+    border-radius: 3px;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    display: inline-block;
+}
+
+.btn:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+}
+
+.btn-green { background: var(--green); }
+.btn-red   { background: var(--red); }
+
+/* Smaller button variant for the materials table */
+.btn-small {
+    padding: 5px 14px;
+    font-size: 0.78rem;
+}
+
+/* Outlined blue — clearly readable, doesn't compete with the green */
+.btn-outline {
+    background: transparent;
+    color: var(--blue) !important;
+    border: 1px solid var(--blue);
+}
+
+.btn-outline:hover {
+    background: var(--blue);
+    color: var(--bg0) !important;
+}
+
+/* Materials conference table */
+.materials-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.materials-table tr {
+    border-bottom: 1px solid rgba(146, 131, 116, 0.2);
+}
+
+.materials-table tr:last-child { border-bottom: none; }
+
+.conf-name {
+    padding: 12px 0;
+    font-weight: bold;
+    color: var(--fg);
+    width: 100%;
+}
+
+.conf-badge {
+    font-size: 0.65rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: var(--green);
+    border: 1px solid var(--green);
+    padding: 1px 6px;
+    border-radius: 2px;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+/* Older rows recede but remain readable and clickable */
+.conf-past { opacity: 0.4; }
+.conf-past:hover { opacity: 0.75; transition: opacity 0.15s ease; }
+
+.conf-links {
+    padding: 12px 0;
+    white-space: nowrap;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+
+/* ----------------------------------------------------------
+   10. LINK GRID (contacts)
+   ---------------------------------------------------------- */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+}
+
+.link-card {
+    padding: 14px 10px;
+    border: 1px solid var(--gray);
+    text-decoration: none;
+    color: var(--fg);
+    text-align: center;
+    font-size: 0.9rem;
+    border-radius: 3px;
+    transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.link-card:hover {
+    border-color: var(--aqua);
+    color: var(--aqua);
+}
+
+
+/* ----------------------------------------------------------
+   11. FOOTER
+   ---------------------------------------------------------- */
+footer {
+    color: var(--gray);
+    font-size: 0.8rem;
+    margin-top: 60px;
+    padding-bottom: 40px;
+    text-align: center;
+}
+
+
+/* ----------------------------------------------------------
+   13. ABSTRACT PAGE
+   ---------------------------------------------------------- */
+.abstract-header { margin-bottom: 0; }
+
+.abstract-conference { margin-bottom: 16px; }
+
+.abstract-title {
+    font-size: 1.6rem;
+    line-height: 1.3;
+    margin: 0 0 16px 0;
+    color: var(--fg);
+}
+
+.abstract-authors {
+    margin: 0 0 6px 0;
+    color: var(--blue);
+    font-size: 0.9rem;
+}
+
+.abstract-affiliations {
+    margin: 0 0 24px 0;
+    padding-left: 20px;
+    font-size: 0.78rem;
+    color: var(--gray);
+    font-style: italic;
+    line-height: 1.6;
+}
+
+.abstract-affiliations li { margin-bottom: 2px; }
+
+.abstract-cta { margin-top: 10px; }
+
+.abstract-ack {
+    font-size: 0.82rem;
+    color: var(--gray);
+    margin: 0;
+}
+
+.ref-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: ref-counter;
+}
+
+.ref-item {
+    counter-increment: ref-counter;
+    position: relative;
+    padding: 10px 0 10px 32px;
+    border-bottom: 1px solid rgba(146, 131, 116, 0.15);
+    font-size: 0.82rem;
+    color: var(--gray);
+    line-height: 1.6;
+}
+
+.ref-item:last-child { border-bottom: none; }
+
+.ref-item::before {
+    content: "[" counter(ref-counter) "]";
+    position: absolute;
+    left: 0;
+    top: 11px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: var(--orange);
+    white-space: nowrap;
+}
+
+.ref-title { color: var(--fg); }
+
+.ref-source { color: var(--gray); }
+
+.ref-doi {
+    color: var(--blue);
+    text-decoration: none;
+    font-size: 0.78rem;
+    transition: color 0.15s ease;
+}
+
+.ref-doi:hover { color: var(--aqua); }
+
+
+/* ----------------------------------------------------------
+   TODO / COMING SOON PAGE
+   ---------------------------------------------------------- */
+.todo-wrap {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    padding: 60px 20px;
+}
+
+.todo-badge {
+    font-size: 0.72rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: var(--orange);
+    border: 1px solid var(--orange);
+    padding: 4px 12px;
+    border-radius: 2px;
+    opacity: 0.8;
+}
+
+.todo-title {
+    font-size: 1.6rem;
+    color: var(--fg);
+    margin: 0;
+    opacity: 0.4;
+}
+
+.todo-message {
+    color: var(--gray);
+    font-size: 0.9rem;
+    line-height: 1.8;
+    margin: 0;
+    max-width: 420px;
+}
+   ---------------------------------------------------------- */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+    }
+
+    .profile-photo {
+        width: 100%;
+        height: 280px;
+        min-width: unset;
+        border-right: none;
+        border-bottom: 3px solid var(--green);
+    }
+
+    .hero-text {
+        padding: 24px;
+        text-align: center;
+    }
+
+    .philosophy-grid,
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    /* 3. Show hamburger, hide horizontal nav links by default */
+    #menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        /* Hidden state */
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--bg0);
+        border-bottom: 2px solid var(--bg1);
+        padding: 10px 20px 20px;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    /* Open state toggled by JS */
+    .nav-links.nav-open {
+        display: flex;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 10px 0;
+        margin-right: 0;
+        border-bottom: 1px solid var(--bg1);
+        font-size: 0.95rem;
+    }
+
+    .nav-links a:last-child { border-bottom: none; }
+
+    .cta-group { flex-direction: column; }
+
+    .hero-text h1 { font-size: 1.7rem; }
+
+    .pub-item { padding-left: 30px; }
+}
+.disabled {
+    /* Changes the aspect */
+    opacity: 0.5;
+    cursor: not-allowed;
+    filter: grayscale(100%);
+
+    /* Prevents clicking */
+    pointer-events: none;
+    text-decoration: none;
+}
