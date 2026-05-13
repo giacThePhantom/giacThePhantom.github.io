@@ -680,6 +680,26 @@ footer {
     .hero-text h1 { font-size: 1.7rem; }
 
     .pub-item { padding-left: 30px; }
+    .hero {
+        flex-direction: column; /* Stacks the photo on top of the text */
+    }
+
+    .profile-photo {
+        width: 100%;           /* Makes photo take full width */
+        min-width: auto;       /* Removes the restriction */
+        height: 300px;         /* Optional: adjust height so it doesn't take too much vertical space */
+        border-right: none;    /* Removes the side border */
+        border-bottom: 3px solid var(--green); /* Adds border between photo and text */
+    }
+
+    .hero-text {
+        padding: 24px;         /* Reduces padding slightly for mobile comfort */
+        text-align: center;    /* Optional: centers text for a cleaner mobile look */
+    }
+
+    .hero-text .bio {
+        max-width: 100%;       /* Ensures bio uses all available width */
+    }
 }
 .disabled {
     /* Changes the aspect */
